@@ -1,0 +1,5 @@
+001;Juan Perez;25;Cardiologia
+002;Maria Soto;67;Urgencias
+003;Pedro Rojas;43;Cirugia
+004;Ana Torres;12;Pediatria
+005;Luis Diaz;31;Traumatologia
