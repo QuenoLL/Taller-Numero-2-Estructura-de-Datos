@@ -10,8 +10,8 @@ class NodoAvl{
 
         NodoAvl(Persona* p){
             this -> dato = p;
-            this -> izq = izq;
-            this -> der = der;
+            this -> izq = nullptr;
+            this -> der = nullptr;
             this -> altura = 1;
         }
 };

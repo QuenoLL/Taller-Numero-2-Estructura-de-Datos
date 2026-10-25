@@ -36,6 +36,7 @@ class ArbolDecision{
             else if(atributo == "Temperatura") actual = p.getTempCorporal();
             else if(atributo == "PresionArterial") actual = p.getPresionArterial();
             else if(atributo == "Dolor") actual = p.getDolor();
+            else if(atributo == "Trauma") actual = p.getTrauma();
             else if(atributo == "SintomasNeu") actual = p.getSintomasNeu();
             else if(atributo == "RequiereCirugia") actual = p.getRequiereC();
             else if(atributo == "DiasHospital") actual = p.getDiasHospital();
