@@ -1,6 +1,7 @@
 #pragma once
+#include <iostream>
 #include <string>
-#include "Nodo.hpp"
+#include "NodoAvl.hpp"
 
 template <class T>
 class Lista{

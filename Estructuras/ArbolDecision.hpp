@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "../Dominio/Persona.hpp"
-#include "Nodo.hpp"
+#include "NodoAvl.hpp"
 #include "NodoDecision.hpp"
 
 using namespace std;
@@ -26,8 +26,8 @@ class ArbolDecision{
             string operador = n-> getOperador();
 
             if(atributo == "TipoDolor"){
-                if(op == "==") return p.getTipo() == n-> getValor();
-                of(op =0 "!=") return p.getTipoDolor() != n -> getValor();
+                if(operador == "==") return p.getTipoDolor() == n-> getValor();
+                if(operador == "!=") return p.getTipoDolor() != n -> getValor();
                 throw invalid_argument("Operador inválido para TipoDolor");
             }
 
@@ -69,7 +69,7 @@ class ArbolDecision{
         }
 
         public:
-            ArbolDecision(const ArboolDecision&)=delete;
+            ArbolDecision(const ArbolDecision&)=delete;
             ArbolDecision& operator = (const ArbolDecision&) = delete;
 
 
@@ -83,9 +83,12 @@ class ArbolDecision{
                 root->setSi(new NodoDecision("Pediatra"));
 
                 // 2 Trauma == 1 -> RequiereCirugia= Cirugia : Traumatología)
-                NodoDecision* trauma new NodoDecision("Trauma", "==", "1");
+                NodoDecision* trauma = new NodoDecision("Trauma", "==", "1");
+                root -> setNo(trauma);
+
+                NodoDecision* cirugiaTrauma = new NodoDecision("RequiereCirugia", "==", "1");
                 cirugiaTrauma -> setSi(new NodoDecision("Cirugia"));
-                cirugiaTrauma -> setNo(new NodoDecision("traumatologia")):
+                cirugiaTrauma -> setNo(new NodoDecision("traumatologia"));
                 trauma -> setSi(cirugiaTrauma);
         
                 // 3 SuntomasNeu == 1 -> Neurología

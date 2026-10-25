@@ -9,7 +9,7 @@ class NodoAvl{
         NodoAvl* der;
         int altura;
 
-        NodoAvl(Persona p){
+        NodoAvl(Persona* p){
             this -> dato = p;
             this -> izq = izq;
             this -> der = der;
