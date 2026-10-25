@@ -41,7 +41,10 @@ class NodoDecision{
          * Retorna una instancia para un Nodo hoja del Decision Tree.
          */
         NodoDecision(string servicio){
-            this->servicio = servicio;
+            this -> atributo = "";
+            this -> operador = "";
+            this -> valor = "";
+            this->servicio = servicio;  
             this->esHoja = true;
             this->no = nullptr;
             this->si = nullptr;
@@ -49,6 +52,18 @@ class NodoDecision{
 
         bool getEsHoja(){
             return esHoja;
+        }
+        string getAtributo(){
+            return atributo;
+        }
+        string getOperador(){
+            return operador;
+        }
+        string getValor(){
+            return valor;
+        }
+        string getServicio(){
+            return servicio;
         }
 
         NodoDecision* getSi(){
@@ -67,7 +82,18 @@ class NodoDecision{
             this->no = p;
         }
 
+        string describir(){
+            if(esHoja) return "Servicio: " + servicio;
+            return atributo + " " + operador + " " + valor;
+        }
+        
+        string describirNegada(){
+            return atributo + " " + negar(operador) + " " + valor;
+        }
 
-        ~NodoDecision();
+        ~NodoDecision(){
+            delete si;
+            delete no;
+        }
 
 };

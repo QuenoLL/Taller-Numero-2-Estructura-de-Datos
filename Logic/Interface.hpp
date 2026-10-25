@@ -11,12 +11,14 @@ class Interface{
     public:
         virtual void crearPersonas(vector<string> partes) = 0;
         virtual void crearDepartamentos() = 0;
-        virtual void asignarPacientes(Persona* persona) = 0;
         virtual void atenderPaciente() = 0;
+        virtual void verDepartamentos() = 0;
         virtual void listarDepartamentos() = 0;
         virtual int cantidadDepartamentos() = 0;
-        virtual void verDepartamento(int indice) = 0;
-        virtual void verHistorial() = 0;
+        virtual void verRecorrido(int indice, int tipo) = 0;
+        virtual void buscarPaciente(string clave) = 0;
+        virtual void eliminarPaciente(int id) = 0;
+        virtual void verArbolDecision(int tipo) = 0;    
 
         virtual ~Interface(){};
 };

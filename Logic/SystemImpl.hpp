@@ -9,23 +9,26 @@ class SystemImpl: public Interface{
     private:
         Lista<Departamento*>* listaDepartamentos;
         Queue<Persona> colaPacientes; 
+        ArbolDecision arbolDecision;
 
         Departamento* buscarDepartamento(string nombre);
-        bool estaDuplicada(Persona& nueva);
+        bool estaDuplicada(int id);
+        void procesarSiguiente();
 
     public:
         SystemImpl();
         
         void crearPersonas(vector<string> partes);
         void crearDepartamentos();
-        void asignarPacientes(Persona*);
         void atenderPaciente();
+        void verDepartamento(int);
         void listarDepartamentos();
         int cantidadDepartamentos();
-        void verDepartamento(int);
-        void verHistorial();
+        void verRecorrido(int indice, int tipo);
+        void buscarPaciente(string clave);
+        void eliminarPaciente(int id);
+        void verArbolDecision(int tipo);
 
-        Lista<Departamento*>* getLista();
 
         ~SystemImpl();
 

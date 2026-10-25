@@ -8,11 +8,13 @@ template<typename T>
 class Queue{
     private:
         Nodo<T>* primero;
+        Nodo<T>* ultimo;
         int tamaño;
 
     public:
         Queue(){
             this -> primero = nullptr;
+            this -> ultimo = nullptr;
             this -> tamaño = 0;
         }
         
@@ -22,15 +24,14 @@ class Queue{
 
         void push(T valor){
             Nodo<T>* nuevo = new Nodo<T> (valor);
-            if(this -> primero == nullptr){
+            if(this -> ultimo == nullptr){
                 this -> primero = nuevo;
+                this -> ultimo = nuevo;
             }else{
-                Nodo<T>* puntero = this -> primero;
-                while(puntero -> getSiguiente() != nullptr){
-                    puntero = puntero -> getSiguiente();
+                this -> ultimo -> setSiguiente(nuevo);
+                this -> ultimo = nuevo;
                 }
-                puntero -> setSiguiente(nuevo);
-            }
+            
             this -> tamaño++;
         }
 
@@ -40,6 +41,9 @@ class Queue{
             }
             Nodo<T>* eliminar = this -> primero;
             this -> primero = eliminar -> getSiguiente();
+            if(this -> primero == nullptr){
+                this -> ultimo = nullptr; 
+            }
             delete eliminar;
             this -> tamaño--;
         }
@@ -53,6 +57,7 @@ class Queue{
                 delete this -> primero;
                 this -> primero = siguiente;
             }
+            this -> ultimo = nullptr;
             this -> tamaño = 0;
         }
 

@@ -6,9 +6,9 @@ using namespace std;
 /**
  * Retorna una instancia de la clase @Persona.hpp
  */
-Persona::Persona(int posAtencion, string name, int edad, float tempCorporal, float presionArterial, int dolor, string tipoDolor, int trauma,
+Persona::Persona(int id, string name, int edad, float tempCorporal, float presionArterial, int dolor, string tipoDolor, int trauma,
 int sintomasNeu, int requiereC, int diasHospital){
-    this->posAtencion = posAtencion;
+    this->id = id;
     this->name = name;
     this->edad = edad;
     this->tempCorporal = tempCorporal;
@@ -19,10 +19,18 @@ int sintomasNeu, int requiereC, int diasHospital){
     this->sintomasNeu = sintomasNeu;
     this->requiereC = requiereC;
     this->diasHospital = diasHospital;
+    this -> servicio = "";
 }
 
-int Persona::getAtencion(){
-    return this->posAtencion;
+int Persona::getId(){
+    return this->id;
+}
+string Persona::getIdFormateado(){
+    string s = to_string(this -> id);
+    while(s.size() <3){
+        s = "0" + s;
+    }
+    return s;
 }
 
 int Persona::getEdad(){

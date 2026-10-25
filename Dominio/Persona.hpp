@@ -6,7 +6,8 @@ using namespace std;
 class Persona{
 
     private:
-        int posAtencion;
+
+        int id;
         string name;
         int edad;
         float tempCorporal;
@@ -17,11 +18,14 @@ class Persona{
         int sintomasNeu;
         int requiereC;
         int diasHospital;
+        string servicio;
 
     public:
-        Persona(int posAtencion, string name, int edad, float tempCorporal, float presionArterial, int dolor, string tipoDolor, int trauma,
-int sintomasNeu, int requiereC, int diasHospital);
-        int getAtencion();
+        Persona(int id, string name, int edad, float tempCorporal, float presionArterial, int dolor, string tipoDolor, int trauma,
+        int sintomasNeu, int requiereC, int diasHospital);
+
+        int getId();
+        string getIdFormateado();
         string getName();
         int getEdad();
         float getTempCorporal();
@@ -32,7 +36,8 @@ int sintomasNeu, int requiereC, int diasHospital);
         int getSintomasNeu();
         int getRequiereC();
         int getDiasHospital();
-
+        string getServicio();
+        void setServicio(string servicio);
 
         ~Persona();
 
