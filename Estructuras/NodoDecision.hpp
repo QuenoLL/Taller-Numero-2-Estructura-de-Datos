@@ -12,6 +12,17 @@ class NodoDecision{
         bool esHoja; //Identificador si es respuesta final o pregunta
         NodoDecision* no; //Si es no.
         NodoDecision* si; //Si es si.
+
+        static string negar(string operador){
+            if(operador == "<")  return ">=";
+            if(operador == "<=") return ">";
+            if(operador == ">")  return "<=";
+            if(operador == ">=") return "<";
+            if(operador == "==") return "!=";
+            if(operador == "!=") return "==";
+            return operador;
+        }        
+    
     public:
         /**
          * Retorna una instancia de Nodo pregunta.
@@ -20,6 +31,7 @@ class NodoDecision{
             this->atributo = atributo;
             this->operador = operador;
             this->valor = valor;
+            this -> servicio = "";
             this->esHoja = false;
             this->no = nullptr;
             this->si = nullptr;
@@ -39,11 +51,11 @@ class NodoDecision{
             return esHoja;
         }
 
-        NodoDecision* getIzquierda(){
+        NodoDecision* getSi(){
             return si;
         }
 
-        NodoDecision* getDerecha(){
+        NodoDecision* getNo(){
             return no;
         }
 
