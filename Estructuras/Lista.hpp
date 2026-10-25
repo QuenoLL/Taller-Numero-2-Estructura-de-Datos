@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "NodoAvl.hpp"
+#include "Nodo.hpp"
+#include <stdexcept>
 
 template <class T>
 class Lista{
@@ -14,6 +15,9 @@ class Lista{
             this -> head = nullptr;
             this -> tamaño = 0;
         }
+
+        Lista(const Lista&) = delete;
+        Lista& operator=(const Lista&) = delete;
 
         void agregar(T valor){
             Nodo<T>* nuevo = new Nodo<T>(valor); 

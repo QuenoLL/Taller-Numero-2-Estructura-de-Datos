@@ -1,5 +1,5 @@
 #pragma once 
-#include "NodoAvl.hpp"
+#include "Nodo.hpp"
 #include <string>
 
 using namespace std;
@@ -17,7 +17,10 @@ class Queue{
             this -> ultimo = nullptr;
             this -> tamaño = 0;
         }
-        
+
+        Queue(const Queue&) = delete;
+        Queue& operator=(const Queue&) = delete;
+
         bool empty(){
             return this-> tamaño == 0;
         }
