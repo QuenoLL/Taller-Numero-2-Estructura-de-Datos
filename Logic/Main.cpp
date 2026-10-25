@@ -69,7 +69,7 @@ void menu(Interface* sistema){
                 sistema->atenderPaciente();
                 break;
             case 2:{
-                sistema->verDepartamentos();
+                sistema->verDepartamento();
                 cout << "Ver recorridos de un departamento (0 = volver):" << "\n";
                 sistema->listarDepartamentos();
                 int depto = leerOpcion(0, sistema->cantidadDepartamentos());
