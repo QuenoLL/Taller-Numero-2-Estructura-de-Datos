@@ -1,7 +1,6 @@
 #pragma once
 #include "../Dominio/Persona.hpp"
 
-
 class NodoAvl{
     public:
         Persona* dato;

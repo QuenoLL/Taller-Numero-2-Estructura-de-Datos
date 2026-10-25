@@ -1,5 +1,5 @@
 #pragma once 
-#include "Nodo.hpp"
+#include "NodoAvl.hpp"
 #include <string>
 
 using namespace std;

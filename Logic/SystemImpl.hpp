@@ -3,6 +3,7 @@
 #include "../Estructuras/Lista.hpp"
 #include "../Estructuras/Queue.hpp"
 #include "../Dominio/Departamento.hpp"
+#include "../Estructuras/ArbolDecision.hpp"
 
 class SystemImpl: public Interface{
 
@@ -21,7 +22,7 @@ class SystemImpl: public Interface{
         void crearPersonas(vector<string> partes);
         void crearDepartamentos();
         void atenderPaciente();
-        void verDepartamento(int);
+        void verDepartamento();
         void listarDepartamentos();
         int cantidadDepartamentos();
         void verRecorrido(int indice, int tipo);

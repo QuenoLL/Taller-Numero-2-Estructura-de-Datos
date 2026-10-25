@@ -91,19 +91,19 @@ class ArbolDecision{
                 cirugiaTrauma -> setNo(new NodoDecision("traumatologia"));
                 trauma -> setSi(cirugiaTrauma);
         
-                // 3 SuntomasNeu == 1 -> Neurología
+                // 3 SintomasNeu == 1 -> Neurología
 
                 NodoDecision* neuro = new NodoDecision("SintomasNeu", "==", "1");
                 neuro -> setSi(new NodoDecision("Neurologia"));
                 trauma -> setNo(neuro);
 
                 //4 TipoDolor == pecho -> cardiologia 
-                NodoDecision* pecho = new NodoDecision("TipoDOlor", "==", "pecho");
+                NodoDecision* pecho = new NodoDecision("TipoDolor", "==", "pecho");
                 pecho -> setSi(new NodoDecision("Cardiologia"));
                 neuro -> setNo(pecho);
 
-                //5 urgencias: temperatuar >38,5 o Dolor >= 8 o presionarterial >= 180
-                NodoDecision* fiebre = new NodoDecision("Temperatura", ">", "38,5");
+                //5 urgencias: temperatura > 38.5 o Dolor >= 8 o presion arterial >= 180
+                NodoDecision* fiebre = new NodoDecision("Temperatura", ">", "38.5");
                 fiebre -> setSi(new NodoDecision("Urgencias"));
                 pecho -> setNo(fiebre);
 
@@ -125,25 +125,21 @@ class ArbolDecision{
                 hosp -> setSi(new NodoDecision("Hospitalizacion"));
                 hosp -> setNo(new NodoDecision("Medicina General"));
                 cirugiaPro -> setNo(hosp);
-
-                string clasificar(Persona& p, string& ruta){
-                    ruta = "";
-                    NodoDecision* cursor = root;
-                    while(!cursor -> getEsHoja()){
-                        bool resultado = cumple(cursor, p);
-                        if(!ruta.empty()) ruta += " -> ";
-                        ruta += resultado ? cursor->describir( ): cursor-> describirNegada();
-                        cursor = resuñtado ? cursor -> getSi() : cursor->getNo();
-                    }
-                    return cursor -> getServicio();
-                }
-
-                void preorden(){ preorden(root,0);}
-                void inorden(){ inorden(root, 0);}
-                void postorden(){ postorden(root,0);}
-
-
-
-
             }
+
+            string clasificar(Persona& p, string& ruta){
+                ruta = "";
+                NodoDecision* cursor = root;
+                while(!cursor -> getEsHoja()){
+                    bool resultado = cumple(cursor, p);
+                    if(!ruta.empty()) ruta += " -> ";
+                    ruta += resultado ? cursor->describir( ) : cursor->describirNegada();
+                    cursor = resultado ? cursor -> getSi() : cursor->getNo();
+                }
+                return cursor -> getServicio();
+            }
+
+            void preorden(){ preorden(root,0);}
+            void inorden(){ inorden(root, 0);}
+            void postorden(){ postorden(root,0);}
 };  

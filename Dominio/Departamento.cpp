@@ -3,18 +3,18 @@
 
 Departamento::Departamento(string name){
     this->name = name;
-    this->listaPacientes = new Lista<Persona>();
+    this->arbol = new ArbolAvl();
 }
 
 string Departamento:: getName(){
     return this -> name;
 }
 
-Lista<Persona>* Departamento::getListaPacientes() {
-    return this->listaPacientes;
+ArbolAvl* Departamento::getArbol() {
+    return this->arbol;
 }
 
 
 Departamento::~Departamento(){
-    delete this->listaPacientes;
+    delete this->arbol;
 }

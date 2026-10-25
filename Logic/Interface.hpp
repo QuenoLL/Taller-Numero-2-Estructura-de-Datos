@@ -12,7 +12,7 @@ class Interface{
         virtual void crearPersonas(vector<string> partes) = 0;
         virtual void crearDepartamentos() = 0;
         virtual void atenderPaciente() = 0;
-        virtual void verDepartamentos() = 0;
+        virtual void verDepartamento() = 0;
         virtual void listarDepartamentos() = 0;
         virtual int cantidadDepartamentos() = 0;
         virtual void verRecorrido(int indice, int tipo) = 0;

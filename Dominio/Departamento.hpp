@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-//#include "../Estructuras/Lista.hpp" Arbol binario debe de ser...
+#include "../Estructuras/ArbolAvl.hpp"
 #include "Persona.hpp"
 
 using namespace std;
@@ -9,12 +9,12 @@ class Departamento{
 
     private:
         string name;
-        Lista<Persona>* listaPacientes;
+        ArbolAvl* arbol;
 
     public:
         Departamento(string name);
         string getName();
-        Lista<Persona>* getListaPacientes();
+         ArbolAvl* getArbol();
 
         ~Departamento();
 };
